@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import PokemonCard from "../../components/PokemonCard";
 import axios from "axios";
+import { ChangePageButtons, Container, PokemonList } from "./styles";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const PokemonHome = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -39,10 +42,55 @@ const PokemonHome = () => {
     setPokemons(pokemonArray);
   }
 
+  async function prevPokemon() {
+    if (!prevUrl) return;
+    setLoading(true);
+    let { data } = await axios.get(prevUrl);
+    getPokemonList(data.results);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  }
+
+  async function nextPokemon() {
+    if (!nextUrl) return;
+    setLoading(true);
+    let { data } = await axios.get(nextUrl);
+    getPokemonList(data.results);
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  }
+
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Container>
+      <PokemonList>
+        {pokemons &&
+          pokemons.map((pokemon, index) => {
+            return (
+              <PokemonCard
+                key={index}
+                idPokemon={pokemon.id}
+                namePokemon={pokemon.name}
+                firstTypePokemon={pokemon.types[0]}
+                secondTypePokemon={pokemon.types[1]}
+                imgPokemon={
+                  pokemon.sprites.other["official-artwork"].front_default
+                }
+              />
+            );
+          })}
+      </PokemonList>
+
+      <ChangePageButtons>
+        <button onClick={prevPokemon}>
+          <IoIosArrowBack /> Anterior
+        </button>
+        <button onClick={nextPokemon}>
+          Próximo <IoIosArrowForward />{" "}
+        </button>
+      </ChangePageButtons>
+    </Container>
   );
 };
 

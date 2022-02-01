@@ -3,6 +3,8 @@ import PokemonHome from "./pages/PokemonHome";
 import PokemonInfo from "./pages/PokemonInfo";
 import PokemonFavorites from "./pages/PokemonFavorites";
 import { GlobalStyle } from "./global/styles";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <GlobalStyle />
+      <ToastContainer />
     </>
   );
 }

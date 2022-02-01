@@ -26,7 +26,7 @@ export const Pokemon = styled.li`
   flex: 0 0 calc(33.333% - 30px);
   margin: 0 15px 90px;
   padding: 1.5rem;
-  box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: 0.3s ease-in-out;
 
@@ -40,8 +40,16 @@ export const Pokemon = styled.li`
 
   border-radius: 1rem;
 
+  @media (min-width: 426px) and (max-width: 768px) {
+    flex: 0 0 calc(50% - 30px);
+  }
+
+  @media (max-width: 425px) {
+    flex: 0 0 calc(100% - 30px);
+  }
+
   &:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
   }
 
   img {
@@ -77,13 +85,5 @@ export const Pokemon = styled.li`
 
   .secondType {
     background-color: ${(props) => typeColors[props.typeTwo]};
-  }
-
-  @media (min-width: 426px) and (max-width: 768px) {
-    flex: 0 0 calc(50% - 30px);
-  }
-
-  @media (max-width: 425px) {
-    flex: 0 0 calc(100% - 30px);
   }
 `;

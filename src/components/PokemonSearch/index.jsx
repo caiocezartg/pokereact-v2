@@ -9,10 +9,9 @@ const PokemonSearch = ({ setPokemons, pokemons, setReloadPokemons }) => {
 
   async function searchPokemon(event) {
     event.preventDefault();
-    const namePokemon = inputText.toLowerCase().replace(/\b0+/g, ""); //Deixa o nome do Pokémon totalmente minusculo, caso seja passado um ID, remove todos os zeros a esquerda.
+    const namePokemon = inputText.toLowerCase().replace(/\b0+/g, "");
 
     try {
-      //Caso o usuário procure com o input vazio, recarrega toda a lista dos Pokémon.
       if (!inputText.length) {
         setReloadPokemons(true);
       } else {

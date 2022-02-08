@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import pokeballIcon from "../../assets/pokeball.png";
+import { darken } from "polished";
 
 const typeColors = {
   bug: "#3B9950",
@@ -17,14 +18,12 @@ const typeColors = {
   normal: "#CA98A7",
   poison: "#9B69D9",
   psychic: "#F81C91",
-  rock: "#8B3E21",
+  rock: "#B9A157",
   steel: "#42BD94",
   water: "#86A8FC",
 };
 
-export const Pokemon = styled.li`
-  flex: 0 0 calc(33.333% - 30px);
-  margin: 0 15px 90px;
+export const Pokemon = styled.div`
   padding: 1.5rem;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -40,16 +39,8 @@ export const Pokemon = styled.li`
 
   border-radius: 1rem;
 
-  @media (min-width: 426px) and (max-width: 768px) {
-    flex: 0 0 calc(50% - 30px);
-  }
-
-  @media (max-width: 425px) {
-    flex: 0 0 calc(100% - 30px);
-  }
-
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   img {
@@ -72,7 +63,6 @@ export const Pokemon = styled.li`
   p {
     display: inline-block;
     text-transform: uppercase;
-    color: #111;
     margin: 0 0.5rem;
     padding: 0.275rem 0.5rem;
     border-radius: 0.5rem;
@@ -80,10 +70,13 @@ export const Pokemon = styled.li`
   }
 
   .firstType {
+    color: ${(props) => darken(0.3, typeColors[props.typeOne])};
     background-color: ${(props) => typeColors[props.typeOne]};
   }
 
   .secondType {
+    color: ${(props) =>
+      props.typeTwo && darken(0.3, typeColors[props.typeTwo])};
     background-color: ${(props) => typeColors[props.typeTwo]};
   }
 `;

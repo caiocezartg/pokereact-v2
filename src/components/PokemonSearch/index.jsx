@@ -22,9 +22,7 @@ const PokemonSearch = ({ setPokemons, pokemons, setReloadPokemons }) => {
         setPokemons((pokemons) => [...pokemons, data]);
       }
     } catch (error) {
-      toast.error("It was not possible to find this Pokémon. Try again!", {
-        position: "top-center",
-      });
+      toast.error("It was not possible to find this Pokémon. Try again!");
     } finally {
       setInputText("");
     }

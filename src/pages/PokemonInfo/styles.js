@@ -45,6 +45,11 @@ export const Container = styled.div`
     padding: 0.5rem 1rem;
     text-transform: capitalize;
   }
+
+  .tooltip {
+    width: 250px;
+    white-space: normal;
+  }
 `;
 
 export const PokemonInfoWrapper = styled.div`
@@ -56,6 +61,15 @@ export const PokemonInfoWrapper = styled.div`
   margin: 10rem 15px 0;
   padding: 0 2rem 3rem;
   text-align: center;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-bottom: 5rem;
+  }
+
+  @media (min-width: 426px) and (max-width: 768px) {
+    flex: 0 0 calc(100% - 30px);
+    margin-top: 10rem;
+  }
 
   @media (max-width: 425px) {
     flex: 0 0 calc(100% - 30px);
@@ -71,12 +85,12 @@ export const PokemonInfoWrapper = styled.div`
   span {
     color: #8e9baa;
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 
   h1 {
     text-transform: capitalize;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 2.5rem;
   }
 
@@ -87,6 +101,7 @@ export const PokemonInfoWrapper = styled.div`
     padding: 0.275rem 0.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
+    font-size: 1.5rem;
   }
 
   .firstType {
@@ -106,6 +121,11 @@ export const PokemonAbilities = styled.div`
   h4 {
     display: inline-block;
     margin: 0 0.5rem;
+
+    @media (max-width: 320px) {
+      margin: 0 0 1rem 0;
+      width: 100%;
+    }
   }
 `;
 
@@ -117,7 +137,7 @@ export const PokemonBasicInfo = styled.div`
     flex: 0 0 calc(33% - 30px);
     margin: 0 15px;
 
-    @media (max-width: 425px) {
+    @media (min-width: 280px) and (max-width: 768px) {
       flex: 0 0 100%;
       margin: 0;
     }
@@ -126,18 +146,34 @@ export const PokemonBasicInfo = styled.div`
 
 export const PokemonStatsWrapper = styled.div`
   flex: 0 0 calc(25% - 30px);
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
   margin: 10rem 15px 0;
-  padding: 0 2rem 3rem;
+  padding: 0 2rem;
   text-align: center;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-bottom: 5rem;
+  }
+
+  @media (min-width: 426px) and (max-width: 768px) {
+    flex: 0 0 calc(100% - 30px);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
 
   @media (max-width: 425px) {
     flex: 0 0 calc(100% - 30px);
     margin-top: 0;
     margin-bottom: 5rem;
+  }
+
+  div {
+    flex: 1;
   }
 
   span {
@@ -234,6 +270,56 @@ export const PokemonListStats = styled.ul`
       span {
         background-color: #7696da;
         color: ${darken(0.3, "#7696da")} !important;
+      }
+    }
+  }
+`;
+
+export const InfoButtons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  button {
+    flex: 0 0 calc(50% - 2rem);
+    border: none;
+    background-color: #ff5350;
+    box-shadow: 0px 3px 10px 3px rgba(255, 83, 80, 0.5);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: 0.3s ease-in-out;
+
+    @media (max-width: 768px) {
+      flex: 0 0 100%;
+      margin: 0 0 2rem 0;
+    }
+
+    &:hover {
+      background-color: #a3211f;
+      box-shadow: 0px 5px 5px 0px rgba(163, 33, 31, 0.5);
+    }
+
+    svg {
+      margin-right: 5px;
+    }
+
+    &.active {
+      background-color: #00bf2f;
+      box-shadow: 0px 3px 10px 3px rgba(0, 191, 47, 0.5);
+
+      &:hover {
+        background-color: #008f23;
+        box-shadow: 0px 5px 5px 0px rgba(0, 143, 35, 0.5);
       }
     }
   }

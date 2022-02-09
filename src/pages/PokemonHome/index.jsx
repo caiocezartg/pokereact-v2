@@ -27,6 +27,7 @@ const PokemonHome = () => {
 
   useEffect(() => {
     getPokemonData();
+    document.title = "PokeReact - A Pokédex created with ReactJS!";
   }, [reloadPokemons, getPokemonData]);
 
   async function getPokemonList(results) {

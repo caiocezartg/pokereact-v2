@@ -5,22 +5,27 @@ import { ChangePageButtons, Container, PokemonList } from "./styles";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import PokemonSearch from "../../components/PokemonSearch";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 const PokemonHome = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState("");
   const [prevUrl, setPrevUrl] = useState("");
   const [reloadPokemons, setReloadPokemons] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const getPokemonData = useCallback(async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon/");
       setNextUrl(data.next);
       setPrevUrl(data.prev);
       getPokemonList(data.results);
       setReloadPokemons(false);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   }, []);
@@ -63,6 +68,7 @@ const PokemonHome = () => {
     setLoading(false);
   }
 
+  if (loading) return <Loading />;
   if (pokemons)
     return (
       <Container>

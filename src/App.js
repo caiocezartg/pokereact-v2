@@ -6,6 +6,7 @@ import { GlobalStyle } from "./global/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="pokemon/:pokemon" element={<PokemonInfo />} />
           <Route path="pokemon/favorites" element={<PokemonFavorites />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
       <GlobalStyle />
       <ToastContainer />

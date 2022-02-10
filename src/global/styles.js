@@ -7,11 +7,17 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body {
-        height: 100vh;
+    #root{
+        position: relative;
+        min-height: 100vh;
         width: 100%;
+        padding-bottom: 150px; //Footer's height
+    }
+
+    body {
         background-color: #F6F8FC;
         font-family: 'Poppins', sans-serif;
+        color: #333;
         -webkit-font-smoothing: antialiased;
     }
 

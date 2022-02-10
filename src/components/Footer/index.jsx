@@ -11,13 +11,18 @@ const Footer = () => {
         <p>{year} &copy; PokeReact (v2) - Developed by Caio Cezar.</p>
         <ul>
           <li>
-            <a href="https://github.com/caiocezartg" target="_blank">
+            <a
+              href="https://github.com/caiocezartg"
+              rel="noreferrer"
+              target="_blank"
+            >
               <BsGithub />
             </a>
           </li>
           <li>
             <a
               href="https://www.linkedin.com/in/caio-cezar-toledo-gon%C3%A7alves/"
+              rel="noreferrer"
               target="_blank"
             >
               <BsLinkedin />

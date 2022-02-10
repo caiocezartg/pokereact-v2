@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/readme_image.png" alt="Pokereact V2" />
+  <img src="./src/assets/readme_image.png" alt="Pokereact V2" />
 
 &#xa0;
 

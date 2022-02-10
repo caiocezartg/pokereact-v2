@@ -47,12 +47,12 @@
 
 ## :dart: About
 
-Um projeto desenvolvido com a biblioteca ReactJS para a construção de uma Pokédex consumindo a a PokeAPI, distribuindo uma lista de Pokémons e suas principais informações.
+A project developed with the ReactJS library to build a Pokédex consuming the PokeAPI, distributing a list of Pokémons and their main information.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Search a Pokémon by your name or ID;
-:heavy_check_mark: Favorite a Pokémon that you like so much!
+:heavy_check_mark: Search a Pokémon by your name or ID; <br>
+:heavy_check_mark: Favorite a Pokémon that you like so much! <br>
 :heavy_check_mark: Check Pokémon's abilities and gender in their profile;
 
 ## :rocket: Technologies

@@ -69,25 +69,28 @@ const PokemonHome = () => {
         />
 
         <PokemonList>
-          {pokemons &&
-            pokemons.map((pokemon, index) => {
-              return (
-                <li
-                  key={index}
-                  onClick={() => navigate(`/pokemon/${pokemon.id}`)}
-                >
-                  <PokemonCard
-                    idPokemon={pokemon.id}
-                    namePokemon={pokemon.name}
-                    firstTypePokemon={pokemon.types[0]}
-                    secondTypePokemon={pokemon.types[1]}
-                    imgPokemon={
-                      pokemon.sprites.other["official-artwork"].front_default
-                    }
-                  />
-                </li>
-              );
-            })}
+          {pokemons.map((pokemon, index) => {
+            return (
+              <li
+                key={index}
+                onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+              >
+                <PokemonCard
+                  idPokemon={pokemon.id}
+                  namePokemon={pokemon.name}
+                  firstTypePokemon={
+                    pokemon.types[0] && pokemon.types[0].type.name
+                  }
+                  secondTypePokemon={
+                    pokemon.types[1] && pokemon.types[1].type.name
+                  }
+                  imgPokemon={
+                    pokemon.sprites.other["official-artwork"].front_default
+                  }
+                />
+              </li>
+            );
+          })}
         </PokemonList>
 
         <ChangePageButtons>

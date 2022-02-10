@@ -9,11 +9,8 @@ const PokemonCard = ({
   imgPokemon,
 }) => {
   return (
-    <Pokemon
-      typeOne={firstTypePokemon.type.name}
-      typeTwo={secondTypePokemon && secondTypePokemon.type.name}
-    >
-      <img src={imgPokemon} alt="Pokemon" />
+    <Pokemon typeOne={firstTypePokemon} typeTwo={secondTypePokemon}>
+      {imgPokemon && <img src={imgPokemon} alt="Pokemon" />}
 
       {idPokemon < 10 ? (
         <span>{`#00${idPokemon}`}</span>
@@ -21,13 +18,11 @@ const PokemonCard = ({
         <span>{`#0${idPokemon}`}</span>
       )}
 
-      <h2>{namePokemon}</h2>
+      {namePokemon && <h2>{namePokemon}</h2>}
 
-      <p className="firstType">{firstTypePokemon.type.name}</p>
+      {firstTypePokemon && <p className="firstType">{firstTypePokemon}</p>}
 
-      {secondTypePokemon && (
-        <p className="secondType">{secondTypePokemon.type.name}</p>
-      )}
+      {secondTypePokemon && <p className="secondType">{secondTypePokemon}</p>}
     </Pokemon>
   );
 };

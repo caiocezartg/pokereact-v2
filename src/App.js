@@ -5,13 +5,15 @@ import PokemonFavorites from "./pages/PokemonFavorites";
 import { GlobalStyle } from "./global/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" element={<PokemonHome />} />
+          <Route exact path="/" element={<PokemonHome />} />
           <Route path="pokemon/:pokemon" element={<PokemonInfo />} />
           <Route path="pokemon/favorites" element={<PokemonFavorites />} />
         </Routes>

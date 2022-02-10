@@ -34,7 +34,7 @@ export const Pokemon = styled.div`
   background-color: #fff;
   background-image: url(${pokeballIcon});
   background-size: 75%;
-  background-position: -50% -50%;
+  background-position: -90px 60px;
   background-repeat: no-repeat;
 
   border-radius: 1rem;
@@ -44,7 +44,7 @@ export const Pokemon = styled.div`
   }
 
   img {
-    width: 10rem;
+    width: 12rem;
     margin: -25% auto 0;
   }
 

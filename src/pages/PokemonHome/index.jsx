@@ -35,6 +35,7 @@ const PokemonHome = () => {
     document.title = "PokeReact - A Pokédex created with ReactJS!";
   }, [reloadPokemons, getPokemonData]);
 
+  // Get array of resolved promises (pokemon) from API
   async function getPokemonList(results) {
     const pokemonArray = await Promise.all(
       results.map(async (pokemon) => {
@@ -46,26 +47,21 @@ const PokemonHome = () => {
     setPokemons(pokemonArray);
   }
 
-  async function prevPokemon() {
-    if (!prevUrl) return;
-    setLoading(true);
-    let { data } = await axios.get(prevUrl);
-    getPokemonList(data.results);
-    setNextUrl(data.next);
-    setPrevUrl(data.previous);
-    window.scrollTo(0, 0);
-    setLoading(false);
-  }
-
-  async function nextPokemon() {
-    if (!nextUrl) return;
-    setLoading(true);
-    let { data } = await axios.get(nextUrl);
-    getPokemonList(data.results);
-    setNextUrl(data.next);
-    setPrevUrl(data.previous);
-    window.scrollTo(0, 0);
-    setLoading(false);
+  // Prev and Next buttons function
+  async function pagePokemon(url) {
+    if (!url) return;
+    try {
+      setLoading(true);
+      let { data } = await axios.get(url);
+      getPokemonList(data.results);
+      setNextUrl(data.next);
+      setPrevUrl(data.previous);
+      window.scrollTo(0, 0);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   }
 
   if (loading) return <Loading />;
@@ -105,12 +101,12 @@ const PokemonHome = () => {
 
         <ChangePageButtons>
           {prevUrl && (
-            <button onClick={prevPokemon}>
+            <button onClick={() => pagePokemon(prevUrl)}>
               <IoIosArrowBack /> Previous
             </button>
           )}
           {nextUrl && (
-            <button onClick={nextPokemon}>
+            <button onClick={() => pagePokemon(nextUrl)}>
               Next <IoIosArrowForward />
             </button>
           )}

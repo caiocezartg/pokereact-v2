@@ -27,23 +27,22 @@ const PokemonFavorites = () => {
     <Container>
       {pokemons.length ? (
         <PokemonList>
-          {pokemons &&
-            pokemons.map((pokemon, index) => {
-              return (
-                <li
-                  key={index}
-                  onClick={() => navigate(`/pokemon/${pokemon.id}`)}
-                >
-                  <PokemonCard
-                    idPokemon={pokemon.id}
-                    namePokemon={pokemon && pokemon.name}
-                    firstTypePokemon={pokemon.typeOne}
-                    secondTypePokemon={pokemon.typeTwo}
-                    imgPokemon={pokemon.image}
-                  />
-                </li>
-              );
-            })}
+          {pokemons.map((pokemon, index) => {
+            return (
+              <li
+                key={index}
+                onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+              >
+                <PokemonCard
+                  idPokemon={pokemon.id}
+                  namePokemon={pokemon && pokemon.name}
+                  firstTypePokemon={pokemon.typeOne}
+                  secondTypePokemon={pokemon.typeTwo}
+                  imgPokemon={pokemon.image}
+                />
+              </li>
+            );
+          })}
         </PokemonList>
       ) : (
         <p>You don't have any favorited Pokémon!</p>

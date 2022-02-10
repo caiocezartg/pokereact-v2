@@ -92,6 +92,10 @@ export const HeaderLink = styled(NavLink)`
 
   &:hover {
     color: #ff5350;
+
+    svg {
+      fill: #ff5350;
+    }
   }
 
   &.active {

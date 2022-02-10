@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 75rem;
   margin: 0 auto;
-  height: 100%;
+
+  > p {
+    text-align: center;
+    font-size: 2rem;
+  }
 `;
 
 export const PokemonList = styled.ul`

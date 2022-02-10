@@ -87,10 +87,10 @@ const PokemonInfo = () => {
         dataInfo.name.charAt(0).toUpperCase() + dataInfo.name.slice(1);
       document.title = `PokeReact - ${pokemonNameTitle}`;
       getAbilitiesDescription(dataInfo.abilities);
-    } catch (error) {
-      console.log(error);
-    } finally {
       setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
     }
   }, [pokemon]);
 
@@ -160,7 +160,7 @@ const PokemonInfo = () => {
   }, [pokemon, getPokemonData, pokemonData.id]);
 
   if (loading) return <Loading />;
-  if (pokemonData && pokemonDescription && pokemonGender && pokemonAbilities)
+  if (pokemonData && pokemonDescription && pokemonAbilities && pokemonGender)
     return (
       <Container>
         {/* Pokémon Image, ID, Name, Entry and Info */}

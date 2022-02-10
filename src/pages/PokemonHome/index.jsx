@@ -43,20 +43,24 @@ const PokemonHome = () => {
 
   async function prevPokemon() {
     if (!prevUrl) return;
+    setLoading(true);
     let { data } = await axios.get(prevUrl);
     getPokemonList(data.results);
     setNextUrl(data.next);
     setPrevUrl(data.previous);
     window.scrollTo(0, 0);
+    setLoading(false);
   }
 
   async function nextPokemon() {
     if (!nextUrl) return;
+    setLoading(true);
     let { data } = await axios.get(nextUrl);
     getPokemonList(data.results);
     setNextUrl(data.next);
     setPrevUrl(data.previous);
     window.scrollTo(0, 0);
+    setLoading(false);
   }
 
   if (pokemons)

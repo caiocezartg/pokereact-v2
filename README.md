@@ -1,9 +1,10 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Pokereact V2" />
+  <img src="./.github/readme_image.png" alt="Pokereact V2" />
 
 &#xa0;
 
-  <!-- <a href="https://pokereactv2.netlify.app">Demo</a> -->
+<a href="https://pokereact-v2.vercel.app/">Demo</a>
+
 </div>
 
 <h1 align="center">Pokereact V2</h1>
@@ -46,23 +47,20 @@
 
 ## :dart: About
 
-Describe your project
+Um projeto desenvolvido com a biblioteca ReactJS para a construção de uma Pokédex consumindo a a PokeAPI, distribuindo uma lista de Pokémons e suas principais informações.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Search a Pokémon by your name or ID;
+:heavy_check_mark: Favorite a Pokémon that you like so much!
+:heavy_check_mark: Check Pokémon's abilities and gender in their profile;
 
 ## :rocket: Technologies
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
 
 ## :white_check_mark: Requirements
 
@@ -88,7 +86,7 @@ $ yarn start
 
 ## :memo: License
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+<!-- This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file. -->
 
 Made with :heart: by <a href="https://github.com/caiocezartg" target="_blank">Caio Cezar</a>
 
